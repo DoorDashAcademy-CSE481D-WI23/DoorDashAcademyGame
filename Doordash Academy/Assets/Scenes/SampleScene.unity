@@ -8483,7 +8483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationFactor: 5
-  turnFactor: 3
+  turnFactor: 5
   driftFactor: 0.8
   frictionFactor: 0.75
   maxSpeed: 7.5
