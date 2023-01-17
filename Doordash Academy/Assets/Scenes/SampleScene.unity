@@ -8336,6 +8336,7 @@ GameObject:
   - component: {fileID: 1772839280}
   - component: {fileID: 1772839279}
   - component: {fileID: 1772839283}
+  - component: {fileID: 1772839284}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -8355,8 +8356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316a38020bfc85c4b9d988746319335c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  rb: {fileID: 1772839280}
 --- !u!50 &1772839280
 Rigidbody2D:
   serializedVersion: 4
@@ -8471,6 +8470,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1772839284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772839278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b305e5c20c940054ba74a52614cd7843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accelerationFactor: 5
+  turnFactor: 3
+  driftFactor: 0.8
+  frictionFactor: 0.75
+  maxSpeed: 7.5
 --- !u!1 &1920434809
 GameObject:
   m_ObjectHideFlags: 3

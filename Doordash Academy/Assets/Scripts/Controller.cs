@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    public float speed = 10;
-    public Rigidbody2D rb;
+    // Components
+    CarController controller;
 
-    public void Update()
+    // Triggers when script instance is loaded
+    void Awake()
+    {
+        controller = GetComponent<CarController>();
+    }
+
+    // On every frame update
+    void Update()
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-
-        Vector3 tempVect = new Vector3(h, v, 0);
-        tempVect = tempVect.normalized * speed * Time.deltaTime;
-        rb.MovePosition(rb.transform.position + tempVect);
+        Vector3 inputVector = new Vector3(h, v, 0);
+        controller.SetInputVector(inputVector);
     }
 }
