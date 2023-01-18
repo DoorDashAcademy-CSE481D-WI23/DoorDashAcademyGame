@@ -54,6 +54,7 @@ public class CarController : MonoBehaviour
 
     void ApplyEngineForce()
     {
+
         // Compute "forward" velocity
         velocityUp = Vector2.Dot(transform.up, carRigidbody2D.velocity);
 
