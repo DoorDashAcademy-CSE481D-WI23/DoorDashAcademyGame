@@ -14,8 +14,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Blocking
+  - Actor
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1469713069
     locked: 0
