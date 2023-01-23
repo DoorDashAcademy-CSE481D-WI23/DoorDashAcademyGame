@@ -11887,6 +11887,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: StopLightNorth
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 288
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d64e4678189024564a13c06fb0e82ea7
+      internalID: 611393239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StopLightSouth
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 288
+        width: 48
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d317d3fb5d55f4f7ba4088e612451bd3
+      internalID: 527175594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StopLightEast
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 288
+        width: 16
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d15fb403718a4db8a553a7014baea2a
+      internalID: -1940556664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StopLightWest
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 288
+        width: 16
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cda70a9a66524706a8e58244e8ed425
+      internalID: -268497426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -12077,6 +12161,7 @@ TextureImporter:
       outdoors-1_439: 26733065
       outdoors-1_13: 1317186740
       outdoors-1_364: -1464974735
+      StopLightSouth: 527175594
       outdoors-1_521: 1594350498
       outdoors-1_262: -1708036090
       outdoors-1_245: 294973580
@@ -12096,6 +12181,7 @@ TextureImporter:
       outdoors-1_409: 573131418
       outdoors-1_421: -941351414
       outdoors-1_517: -2094266520
+      StopLightNorth: 611393239
       outdoors-1_136: -1622409348
       outdoors-1_292: -1457826162
       outdoors-1_115: -463895561
@@ -12147,10 +12233,12 @@ TextureImporter:
       outdoors-1_309: -1268945527
       outdoors-1_360: -223479129
       outdoors-1_470: 1161191260
+      StopLightEast: -1940556664
       outdoors-1_489: 251309441
       outdoors-1_16: 972331608
       outdoors-1_157: -345606905
       outdoors-1_454: 33073513
+      StopLightWest: -268497426
       outdoors-1_185: -1778313558
       outdoors-1_168: -2042219243
       outdoors-1_130: -1226081933
@@ -12180,8 +12268,8 @@ TextureImporter:
       outdoors-1_356: 276857851
       outdoors-1_556: 676898563
       outdoors-1_35: -1260361206
-      outdoors-1_475: 1894073363
       outdoors-1_415: -820383737
+      outdoors-1_475: 1894073363
       outdoors-1_538: 1839782826
       outdoors-1_427: 125985755
       outdoors-1_414: -2023617366
