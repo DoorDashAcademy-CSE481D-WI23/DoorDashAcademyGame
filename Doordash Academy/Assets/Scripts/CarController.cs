@@ -71,7 +71,7 @@ public class CarController : MonoBehaviour
             return;
 
         // Apply forward (or backward) drag when there is no user acceleration
-        if (accelerationInput == 0)
+        if (accelerationInput != 1 || accelerationInput != -1)
             carRigidbody2D.drag = Mathf.Lerp(carRigidbody2D.drag,
                                              frictionFactor,
                                              Time.fixedDeltaTime * DragTimeFactor);
