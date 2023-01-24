@@ -8,29 +8,41 @@ public class VehicleBehavior : MonoBehaviour
     public float MaxSpeed = 7f;
     public float AccelerationPower = 1f;
     public float BrakingPower = 2f;
-    public Vector3 DirectionVector = new Vector3(-1, 0, 0);
+    public Vector3 DirectionVector = Vector3.left;
     public float DetectionRangeMultiplier = 30f;
     public float MinimumDetectionRange = 2f;
+    public float hitboxOffsetY = 0.08f;
+    public float hitboxOffsetX = 0f;
 
     private float velocity;
+    private BoxCollider2D hitbox;
 
     // Start is called before the first frame update
     void Start()
     {
         velocity = InitialVelocity;
+        hitbox = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(velocity);
-         // TODO: Currently the ray is cast from the pivot point (bottom y position) of the sprite.
-         // Another ray needs to be cast from the other side of the sprite to better detect player.
-         if (Physics2D.Raycast(transform.position, DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), LayerMask.GetMask("Player", "Blocking", "Actor"))) {
+        bool hit = false;
+
+        // Cast multiple rays in direction of movement to check for collisions. 
+        if (DirectionVector == Vector3.left || DirectionVector == Vector3.right) {
+            hit = (Physics2D.Raycast(hitbox.transform.position, DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), LayerMask.GetMask("Player", "Blocking", "Actor")).collider != null ||
+                   Physics2D.Raycast(hitbox.transform.position + new Vector3(0, hitbox.size.y + hitboxOffsetY, 0), DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), LayerMask.GetMask("Player", "Blocking", "Actor")).collider != null);
+        } else if (DirectionVector == Vector3.up || DirectionVector == Vector3.down) {
+            hit = (Physics2D.Raycast(hitbox.transform.position, DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), LayerMask.GetMask("Player", "Blocking", "Actor")).collider != null ||
+                   Physics2D.Raycast(hitbox.transform.position + new Vector3(hitbox.size.x + hitboxOffsetX, 0, 0), DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), LayerMask.GetMask("Player", "Blocking", "Actor")).collider != null);
+        }
+
+        if (hit) {
             ApplyBrake();
-         } else {
+        } else {
             ApplyGas();
-         }
+        }
     }
 
     private void ApplyGas() {
