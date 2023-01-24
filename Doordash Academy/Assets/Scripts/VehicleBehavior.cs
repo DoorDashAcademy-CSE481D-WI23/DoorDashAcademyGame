@@ -23,7 +23,7 @@ public class VehicleBehavior : MonoBehaviour
     {
         velocity = InitialVelocity;
         hitbox = GetComponent<BoxCollider2D>();
-        layerMask = LayerMask.GetMask("Player", "Blocking", "Actor", "Ignore Collisions");
+        layerMask = LayerMask.GetMask("Blocking", "Actor", "Ignore Collisions");
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class VehicleBehavior : MonoBehaviour
     {
         bool hit = false;
 
-        // Cast multiple rays in direction of movement to check for collisions. 
+        // Cast multiple rays in direction of movement to check for collisions.
         if (DirectionVector == Vector3.left || DirectionVector == Vector3.right) {
             hit = (Physics2D.Raycast(hitbox.transform.position, DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), layerMask).collider != null ||
                    Physics2D.Raycast(hitbox.transform.position + new Vector3(0, hitbox.size.y + hitboxOffsetY, 0), DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), layerMask).collider != null);
