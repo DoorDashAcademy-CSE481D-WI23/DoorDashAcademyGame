@@ -8,7 +8,13 @@ public class MainMenu : MonoBehaviour
     // Loads a relevant scene and begins play.
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    // Loads a scene and begins play.
+    public void PlayLevel(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 
     // Terminates the application
