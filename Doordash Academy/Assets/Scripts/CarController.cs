@@ -37,7 +37,7 @@ public class CarController : MonoBehaviour
     // Triggers before first frame update
     void Start()
     {
-
+        Physics2D.IgnoreLayerCollision(3,8);
     }
 
     // On every frame update
