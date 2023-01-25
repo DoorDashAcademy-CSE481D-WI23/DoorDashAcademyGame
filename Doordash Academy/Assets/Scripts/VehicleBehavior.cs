@@ -29,6 +29,12 @@ public class VehicleBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Check position and despawn if out-of-bounds
+        if (this.transform.position.x >= 115 || this.transform.position.x <= -40 ||
+            this.transform.position.y >= 90 || this.transform.position.y <= -20) {
+            Destroy(gameObject);
+        }
+
         bool hit = false;
 
         // Cast multiple rays in direction of movement to check for collisions.
