@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// TODO: HAVE PLAYER IGNORE COLLISIONS FROM LAYER "Ignore Collisions"
-
 public class CarController : MonoBehaviour
 {
     // State accessible from editor
