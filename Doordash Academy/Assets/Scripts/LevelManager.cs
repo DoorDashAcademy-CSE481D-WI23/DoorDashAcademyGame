@@ -71,6 +71,8 @@ public class LevelManager : MonoBehaviour
         hasFood = true;
         currentDelivery[0].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+        FindObjectOfType<AudioManager>().Play("Pickup");
+
     }
 
     void deliveryCompleted() {
