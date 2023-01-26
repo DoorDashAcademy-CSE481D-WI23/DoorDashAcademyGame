@@ -30,7 +30,7 @@ public class StopLightIntersectionManager : MonoBehaviour
         NorthCollider.enabled = false;
 
         SetLightColorAndYPos(south, 2.56f, Color.green);
-        NorthCollider.enabled = false;
+        SouthCollider.enabled = false;
 
         SetLightColorAndYPos(east, 3.25f, Color.red);
         EastCollider.enabled = true;

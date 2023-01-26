@@ -39,8 +39,10 @@ public class VehicleBehavior : MonoBehaviour
         // Cast rays in direction of movement to check for collisions.
         if (DirectionVector == Vector3.left || DirectionVector == Vector3.right) {
             hit = Physics2D.Raycast(hitbox.transform.position + new Vector3(0, hitbox.size.y / 2, 0), DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), layerMask);
-        } else if (DirectionVector == Vector3.up || DirectionVector == Vector3.down) {
+        } else if (DirectionVector == Vector3.down) {
             hit = Physics2D.Raycast(hitbox.transform.position, DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), layerMask);
+        } else if (DirectionVector == Vector3.up) {
+            hit = Physics2D.Raycast(hitbox.transform.position + (DirectionVector * hitbox.size.x), DirectionVector, Mathf.Max(velocity * DetectionRangeMultiplier, MinimumDetectionRange), layerMask);
         } else {
             throw new System.Exception("Vehicle has invalid direction!");
         }
@@ -58,7 +60,7 @@ public class VehicleBehavior : MonoBehaviour
             } else {
                 if (hit.distance - lastDetectionRange < -1) {
                     layerMask = LayerMask.GetMask("Blocking", "Actor");
-                    ignoreIntersectionColliders = Time.time + 1;  // Ignore intersection lights for one second.
+                    ignoreIntersectionColliders = Time.time + 0.5f;  // Ignore intersection lights for one second.
                 }
                 ApplyBrake();
                 lastDetectionRange = hit.distance;
