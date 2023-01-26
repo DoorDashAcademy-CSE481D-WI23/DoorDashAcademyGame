@@ -57,6 +57,8 @@ public class LevelManager : MonoBehaviour
 
     void getNewDeliveryRoute() {
         currentDelivery[0] = pickupLocations[Random.Range(0, pickupLocations.Length)];
+        currentDelivery[0].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+
         currentDelivery[1] = dropoffLocations[Random.Range(0, dropoffLocations.Length)];
         hasFood = false;
         foodTemp = 100f;
@@ -66,12 +68,14 @@ public class LevelManager : MonoBehaviour
     void getFood() {
         Debug.Log("got the food!");
         hasFood = true;
+        currentDelivery[0].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
     }
 
     void deliveryCompleted() {
         Debug.Log("delivery completed!");
         hasFood = false;
+        currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         getNewDeliveryRoute();
     }
-
 }
