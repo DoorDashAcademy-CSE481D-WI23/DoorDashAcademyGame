@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    public float temperatureDecay = 0.5f;
+    public float temperatureDecay = 1.5f;
+    public Slider TemperatureBar;
 
     private GameObject[] pickupLocations;
     private GameObject[] dropoffLocations;
@@ -38,6 +40,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         foodTemp -= temperatureDecay * Time.deltaTime;
+        TemperatureBar.value = foodTemp / 100f;
     }
 
     public void enteredTrigger(GameObject triggerObj)
