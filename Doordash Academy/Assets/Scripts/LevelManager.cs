@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
+    public GameObject player;
     public float temperatureDecay = 1.5f;
     public Slider TemperatureBar;
 
@@ -76,6 +77,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("delivery completed!");
         hasFood = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+        FindObjectOfType<AudioManager>().Play("Dropoff");
         getNewDeliveryRoute();
     }
 }
