@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
     public GameObject player;
+    public TMP_Text displayText;
+    public TMP_Text displayScore;
     public float temperatureDecay = 1.5f;
     public Slider TemperatureBar;
 
@@ -14,10 +18,13 @@ public class LevelManager : MonoBehaviour
     private GameObject[] currentDelivery;
     private bool hasFood;
     private float foodTemp;
+    private string goal;
+    private float score;
 
     void Start()
     {
         currentDelivery = new GameObject[2];
+        score = 0;
 
         GameObject PickupLocationsParent = GameObject.Find("Pickup Locations");
         if (PickupLocationsParent == null) Debug.Log("Error: the scene should have a \"Pickup Locations\" object");
@@ -42,6 +49,7 @@ public class LevelManager : MonoBehaviour
     {
         foodTemp -= temperatureDecay * Time.deltaTime;
         TemperatureBar.value = foodTemp / 100f;
+        displayScore.GetComponent<TMP_Text>().text = "$ " + score;
     }
 
     public void enteredTrigger(GameObject triggerObj)
@@ -57,10 +65,13 @@ public class LevelManager : MonoBehaviour
     }
 
     void getNewDeliveryRoute() {
-        currentDelivery[0] = pickupLocations[Random.Range(0, pickupLocations.Length)];
+        currentDelivery[0] = pickupLocations[UnityEngine.Random.Range(0, pickupLocations.Length)];
         currentDelivery[0].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 
-        currentDelivery[1] = dropoffLocations[Random.Range(0, dropoffLocations.Length)];
+        goal = currentDelivery[0].name;
+        displayText.GetComponent<TMP_Text>().text = "Go To: " + goal;
+
+        currentDelivery[1] = dropoffLocations[UnityEngine.Random.Range(0, dropoffLocations.Length)];
         hasFood = false;
         foodTemp = 100f;
         Debug.Log("The current delivery route is from " + currentDelivery[0].name + " to " + currentDelivery[1].name);
@@ -71,6 +82,9 @@ public class LevelManager : MonoBehaviour
         hasFood = true;
         currentDelivery[0].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
+
+        goal = currentDelivery[1].name;
+        displayText.GetComponent<TMP_Text>().text = "Go To: " + goal;
         FindObjectOfType<AudioManager>().Play("Pickup");
 
     }
@@ -80,6 +94,13 @@ public class LevelManager : MonoBehaviour
         hasFood = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         FindObjectOfType<AudioManager>().Play("Dropoff");
+        updateScore();
         getNewDeliveryRoute();
+    }
+
+    // Calculate score based on the time remaining.
+    // Can be modified later for a better score function.
+    void updateScore() {
+        score +=  MathF.Truncate(TemperatureBar.value * 100);
     }
 }
