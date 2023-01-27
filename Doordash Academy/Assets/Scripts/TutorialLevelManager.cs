@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class TutorialLevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     public GameObject player;
     public TMP_Text displayText;
@@ -120,7 +120,7 @@ public class TutorialLevelManager : MonoBehaviour
         updateScore();
         if (deliveryNumber >= 3) { // tutorial is done
             displayText.GetComponent<TMP_Text>().text = "Tutorial Complete";
-            Time.timeScale = 0.0f; // Pause the game
+            Time.timeScale = 0.0f;
         } else {
             getNewDeliveryRoute();
         }
