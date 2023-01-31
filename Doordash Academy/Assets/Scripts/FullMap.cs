@@ -5,14 +5,20 @@ using UnityEngine;
 public class FullMap : MonoBehaviour
 {
     public GameObject mapCamera;
-    public GameObject mapBounds;
+    public Rect cameraBounds;
 
     private Transform cameraTransform;
+    private float xMin, xMax, yMin, yMax;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         cameraTransform = mapCamera.GetComponent<Transform>();
+        xMin = cameraBounds.xMin;
+        xMax = cameraBounds.xMax;
+        yMin = cameraBounds.yMin;
+        yMax = cameraBounds.yMax;
     }
 
     // Update is called once per frame
@@ -23,6 +29,8 @@ public class FullMap : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         
-        cameraTransform.position += new Vector3(h, v, 0);
+        float x = Mathf.Clamp(cameraTransform.position.x + h, xMin, xMax);
+        float y = Mathf.Clamp(cameraTransform.position.y + v, yMin, yMax);
+        cameraTransform.position = new Vector3(x, y, cameraTransform.position.z);
     }
 }
