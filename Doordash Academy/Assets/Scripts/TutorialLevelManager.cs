@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class LevelManager : MonoBehaviour
+public class TutorialLevelManager : MonoBehaviour
 {
     public GameObject player;
     public TMP_Text displayText;
@@ -34,11 +34,11 @@ public class LevelManager : MonoBehaviour
         deliveryNumber = 0;
         tutorialIndex = 0;
 
-        tutorialTextList = new string[] {"Welcome to the DoorDash Academy Tutorial! Use WASD or Arrow Keys to drive around the map. Pickup locations for food will be marked by a blue dot on the minimap. Drive to the first pickup location!",
-        "Great! Now that you have picked up the food, the delivery location will be marked by a new blue dot on the minimap. Reach the destination before the temperature bar depletes for a higher payment!",
+        tutorialTextList = new string[] {"Welcome to the DoorDash Academy Tutorial! Use WASD or Arrow Keys to drive around the city. Pickup locations for food will be marked by a blue dot on the minimap. Drive to the first pickup location!",
+        "Great! Now that you have picked up the food, the delivery location will be marked by a new blue dot on the minimap. Click on the minimap to see the whole city!",
         "Complete 2 more deliveries to finish the training and don't forget to watch out for traffic! Getting hit by a car hurts...",
         "The interface at the bottom of the screen shows the money you have earned, the temperature bar, and the name of your next destination!",
-        "1 more delivery to go!",
+        "Reach the destination before the temperature bar depletes for a higher payment!",
         "Press escape to pause the game at any time",
         "You finished the tutorial! Open the pause menu by pressing escape and navigate to the main menu!"};
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class TutorialLevelManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     public GameObject player;
     public TMP_Text displayText;
