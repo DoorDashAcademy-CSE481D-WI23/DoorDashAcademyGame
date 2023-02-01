@@ -6,10 +6,11 @@ public class CarController : MonoBehaviour
     // State accessible from editor
     [Header("Car Settings")]
     public float accelerationFactor = 1.0f;
-    public float turnFactor = 1.0f;
+    public float maxTurnFactor = 1.0f;
     public float driftFactor = 1.0f;
     public float frictionFactor = 1.0f;
     public float maxSpeed = 1.0f;
+    public float adjustedTurnFactor;
 
     // Constants
     const float TurnSpeedFactor = 8.0f;
@@ -92,8 +93,10 @@ public class CarController : MonoBehaviour
         steeringInput = (velocityUp < 0.0f) ? -steeringInput : steeringInput;
         // TODO: How? Need to correctly compute "forward" velocity
 
+        adjustedTurnFactor = maxTurnFactor - ((maxTurnFactor - 1)/maxSpeed)*carRigidbody2D.velocity.magnitude;
+
         // Update the rotation angle based on input
-        rotationAngle -= (steeringInput * turnFactor * speedFactor);
+        rotationAngle -= (steeringInput * adjustedTurnFactor * speedFactor);
         carRigidbody2D.MoveRotation(rotationAngle);
     }
 
