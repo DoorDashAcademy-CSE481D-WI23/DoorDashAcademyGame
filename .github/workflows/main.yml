@@ -7,8 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  # this came from https://game.ci/docs/github/builder
-  buildForAllSupportedPlatforms:
+  build_and_release:
     name: Build for ${{ matrix.targetPlatform }}
     runs-on: ubuntu-latest
     strategy:
@@ -37,28 +36,6 @@ jobs:
           targetPlatform: ${{ matrix.targetPlatform }}
           projectPath: Doordash Academy/
           versioning: Semantic
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
-
-  releaseForAllSupportedPlatforms:
-    name: release ${{ matrix.targetPlatform }} to itch.io
-    runs-on: ubuntu-latest
-    needs: buildForAllSupportedPlatforms
-    strategy:
-      fail-fast: false
-      matrix:
-        targetPlatform: # this must be the same matrix as used above
-          - StandaloneOSX # Build a macOS standalone (Intel 64-bit).
-          - StandaloneWindows # Build a Windows standalone.
-          - WebGL # WebGL.
-    steps:
-      - name: download build artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: Build-${{ matrix.targetPlatform }}
       - name: publish to itch.io using butler
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -66,4 +43,4 @@ jobs:
           CHANNEL: ${{ matrix.targetPlatform }}
           ITCH_GAME: doordash-academy
           ITCH_USER: doordashacademy
-          PACKAGE: Build-${{ matrix.targetPlatform }}
+          PACKAGE: build/${{ matrix.targetPlatform }}
