@@ -20,7 +20,7 @@ public class VehicleBehavior : MonoBehaviour
     private float ignoreIntersectionColliders = 0f;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         velocity = InitialVelocity;
         hitbox = GetComponent<BoxCollider2D>();
@@ -28,7 +28,7 @@ public class VehicleBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (Time.time > ignoreIntersectionColliders) {
             layerMask = LayerMask.GetMask("Actor", "Ignore Collisions");
