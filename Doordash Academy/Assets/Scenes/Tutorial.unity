@@ -40571,8 +40571,9 @@ MonoBehaviour:
   cameraTarget: {fileID: 984406585}
   zoomTimeFactor: 2
   leadFactor: 0.5
-  minOrthographicSize: 6
-  maxOrthographicSize: 12
+  maxSpeedFactor: 0.75
+  minOrthographicSize: 7
+  maxOrthographicSize: 14
 --- !u!1 &1546973825
 GameObject:
   m_ObjectHideFlags: 0
