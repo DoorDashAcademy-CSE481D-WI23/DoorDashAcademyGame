@@ -18,10 +18,10 @@ public class CarController : MonoBehaviour
     const float ReverseFactor = 0.5f;
 
     // Local state
-    float accelerationInput = 0.0f;
-    float steeringInput = 0.0f;
-    float rotationAngle = 0.0f;
-    float velocityUp = 0.0f;
+    private float accelerationInput = 0.0f;
+    private float steeringInput = 0.0f;
+    private float rotationAngle = 0.0f;
+    private float velocityUp = 0.0f;
 
     // Components
     Rigidbody2D carRigidbody2D;
@@ -116,8 +116,8 @@ public class CarController : MonoBehaviour
         accelerationInput = inputVector.y;
     }
 
-    public float GetSpeed()
+    public Vector2 GetVelocity()
     {
-        return carRigidbody2D.velocity.magnitude;
+        return carRigidbody2D.velocity;
     }
 }
