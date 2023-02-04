@@ -10,11 +10,8 @@ public class TilemapSerializerInspector : Editor
     DrawDefaultInspector();
 
     TilemapSerializer grid = (TilemapSerializer)target;
-    if (GUILayout.Button("Load Tilemap")) {
+    if (GUILayout.Button("Load Tilemap (might take a minute)")) {
         grid.LoadTilemap();
-    }
-    if (GUILayout.Button("Save Tilemap")) {
-        grid.SaveChanges();
     }
     if (GUILayout.Button("Clear Scene for commiting to GitHub")) {
         grid.SaveChanges();

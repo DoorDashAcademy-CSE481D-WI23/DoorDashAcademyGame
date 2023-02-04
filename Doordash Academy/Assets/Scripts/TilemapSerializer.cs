@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 using System.IO;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 
 /* The purpose of this script is to allow us to use very large tilemaps without having very large scene files.
  * It saves the tilemap data in a more space-efficient way in a separate file, instead of saving many objects
@@ -14,20 +15,13 @@ using UnityEditor;
 public class TilemapSerializer : MonoBehaviour
 {
 
-
-
-    // At runtime, load in the tilemap data from the save file and fill in the tilemap objects
-    void Start()
-    {
-        LoadTilemap();
-    }
-
     public void ClearTileMaps() {
         foreach(Transform child in gameObject.transform) {
             Tilemap tileMap = child.GetComponent<Tilemap>();
             if (tileMap == null) continue;
             tileMap.ClearAllTiles();
         }
+        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
     }
 
     // load in the tilemap data from save file so that it can be edited
@@ -37,6 +31,7 @@ public class TilemapSerializer : MonoBehaviour
         TextAsset[] JsonFiles = Resources.LoadAll<TextAsset>(path);
         Debug.Log("tried path " + path + ". found "+ JsonFiles.Length);
         Tile[] tiles = Resources.LoadAll<Tile>("Tiles");
+        Dictionary<string, Tile> tileCache = new Dictionary<string, Tile>();
         for(int i = 0; i < JsonFiles.Length; i++) {
             Debug.Log("processing file "+ JsonFiles[i].name);
             Tilemap tileMap = GameObject.Find(JsonFiles[i].name).GetComponent<Tilemap>();
@@ -51,10 +46,15 @@ public class TilemapSerializer : MonoBehaviour
                 for(int y = minY; y< maxY; y++){
                     for(int z = minZ; z < maxZ; z++){
                         string neededTile = mapData.data[(x-minX) + (maxX-minX+1) * ((y-minY) + (maxY-minY+1) * z)];
-                        for(int j = 0; j < tiles.Length; j++) {
-                            if (tiles[j].name == neededTile) {
-                                tileMap.SetTile(new Vector3Int(x,y,z), tiles[j]);
-                                j = tiles.Length;
+                        if (tileCache.ContainsKey(neededTile)) {
+                            tileMap.SetTile(new Vector3Int(x,y,z), tileCache[neededTile]);
+                        } else {
+                            for(int j = 0; j < tiles.Length; j++) {
+                                if (tiles[j].name == neededTile) {
+                                    tileMap.SetTile(new Vector3Int(x,y,z), tiles[j]);
+                                    tileCache[neededTile] = tiles[j];
+                                    j = tiles.Length;
+                                }
                             }
                         }
                     }
