@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    // Components
-    CarController controller;
+    private CarController controller;
 
     // Triggers when script instance is loaded
     void Awake()
@@ -16,9 +15,9 @@ public class Controller : MonoBehaviour
     // On every frame update
     void Update()
     {
+        // Update underlying car
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        Vector3 inputVector = new Vector3(h, v, 0);
-        controller.SetInputVector(inputVector);
+        controller.SetInputVector(new Vector3(h, v, 0));
     }
 }
