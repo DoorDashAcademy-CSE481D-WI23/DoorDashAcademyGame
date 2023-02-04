@@ -26,6 +26,9 @@ public class MinimapComponent : MonoBehaviour
     void Update()
     {
         t.rotation = Quaternion.identity;
+
+        if (Input.GetKeyDown(KeyCode.M))
+            ToggleZoom();
     }
 
     public void ToggleZoom() {
