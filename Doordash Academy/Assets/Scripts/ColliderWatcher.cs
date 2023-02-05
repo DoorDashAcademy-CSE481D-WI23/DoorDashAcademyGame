@@ -5,10 +5,10 @@ using UnityEngine;
 public class ColliderWatcher : MonoBehaviour
 {
 
-    private TutorialLevelManager manager;
+    private LevelManager manager;
 
     void Start() {
-        manager = GameObject.FindObjectOfType<TutorialLevelManager>();
+        manager = GameObject.FindObjectOfType<LevelManager>();
     }
 
     void OnCollisionEnter2D(Collision2D col) {
