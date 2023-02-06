@@ -212,7 +212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bicycle (1)_0
+      name: Bike_45_5
       rect:
         serializedVersion: 2
         x: 160
@@ -233,7 +233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bicycle (1)_1
+      name: Bike_45_6
       rect:
         serializedVersion: 2
         x: 192
@@ -254,7 +254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bicycle (1)_2
+      name: Bike_45_7
       rect:
         serializedVersion: 2
         x: 228
@@ -778,6 +778,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bicycle (1)_0
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 159
+        width: 125
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adbd983d599d74bedb1eaa6d52f2648b
+      internalID: 500700043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -802,19 +823,20 @@ TextureImporter:
       bike_90_2: 254205891
       Bike_45_1: -1726901236
       bike_135_0: 1631956356
+      Bike_45_5: -742633746
       bike_90_0: -771534073
       bike_135_6: 997134052
+      Bike_45_6: 148487776
       bike_135_7: 94460691
       bike_south_5: 45030405
       Bike_45_2: -1368749121
       bike_south_0: -1771789485
-      bicycle (1)_0: -742633746
+      Bike_45_7: -1400045134
+      bicycle (1)_0: 500700043
       bike_90_4: 975788723
       bike_south_4: 1435684467
       bike_135_4: 1690599277
-      bicycle (1)_2: -1400045134
       bike_135_2: -862701739
-      bicycle (1)_1: 148487776
       bike_135_1: 1207206147
       Bike_45_4: -1321051754
       bike_90_5: 792432787
