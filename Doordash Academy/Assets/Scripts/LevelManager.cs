@@ -13,17 +13,18 @@ public class LevelManager : MonoBehaviour
     public float temperatureDecay = 1.5f;
     public Slider TemperatureBar;
 
-    private GameObject[] pickupLocations;
-    private GameObject[] dropoffLocations;
-    private GameObject[] currentDelivery;
-    private bool hasFood;
-    private float foodTemp;
-    private string goal;
-    private float score;
 
-    private int deliveryNumber;
+    protected GameObject[] pickupLocations;
+    protected GameObject[] dropoffLocations;
+    protected GameObject[] currentDelivery;
+    protected bool hasFood;
+    protected float foodTemp;
+    protected string goal;
+    protected float score;
 
-    void Start()
+    protected int deliveryNumber;
+
+    protected void Start()
     {
         currentDelivery = new GameObject[2];
         score = 0;
@@ -48,14 +49,14 @@ public class LevelManager : MonoBehaviour
         getNewDeliveryRoute();
     }
 
-    void Update()
+    virtual protected void Update()
     {
         foodTemp -= temperatureDecay * Time.deltaTime;
         TemperatureBar.value = foodTemp / 100f;
         displayScore.GetComponent<TMP_Text>().text = "$ " + score;
     }
 
-    public void enteredTrigger(GameObject triggerObj)
+    public virtual void enteredTrigger(GameObject triggerObj)
     {
         GameObject currentObjective = currentDelivery[hasFood ? 1 : 0];
         if (triggerObj == currentObjective) {
@@ -84,7 +85,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("The current delivery route is from " + currentDelivery[0].name + " to " + currentDelivery[1].name);
     }
 
-    void getFood() {
+    protected void getFood() {
         Debug.Log("got the food!");
         hasFood = true;
         currentDelivery[0].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
@@ -96,7 +97,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    void deliveryCompleted() {
+    protected void deliveryCompleted() {
         Debug.Log("delivery completed!");
         hasFood = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;

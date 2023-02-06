@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 // This script should be attached to a child object of the player
 public class MinimapComponent : MonoBehaviour
@@ -11,7 +12,7 @@ public class MinimapComponent : MonoBehaviour
     private Transform t;
     private Vector3 zoomedOutPosition = new Vector3(26.5f, 33.1f, -139.17f);
     private float zoomedInZ;
-    private Transform minimapTransform;
+    public Transform minimapFrameTransform;
     private bool isZoomedOut = false;
 
     void Start()
@@ -19,7 +20,6 @@ public class MinimapComponent : MonoBehaviour
         t = gameObject.GetComponent<Transform>();
         parentTransform = t.parent;
         zoomedInZ = t.position.z;
-        minimapTransform = GameObject.Find("Minimap Frame").transform;
     }
 
     // Update is called once per frame
@@ -48,16 +48,16 @@ public class MinimapComponent : MonoBehaviour
 
     IEnumerator moveTo(Vector3 cameraPosition, Vector3 minimapScale) {
         Vector3 startingPosition = t.position;
-        Vector3 startingScale = minimapTransform.localScale;
+        Vector3 startingScale = minimapFrameTransform.localScale;
         float time = Time.deltaTime;
         while (time < zoomTransitionDuration)
         {
             t.position = startingPosition + curve.Evaluate(time/zoomTransitionDuration) * (cameraPosition-startingPosition);
-            minimapTransform.localScale = startingScale + curve.Evaluate(time/zoomTransitionDuration) * (minimapScale - startingScale);
+            minimapFrameTransform.localScale = startingScale + curve.Evaluate(time/zoomTransitionDuration) * (minimapScale - startingScale);
             time += Time.deltaTime;
             yield return 0;
         }
         t.position = cameraPosition;
-        minimapTransform.localScale = minimapScale;
+        minimapFrameTransform.localScale = minimapScale;
     }
 }

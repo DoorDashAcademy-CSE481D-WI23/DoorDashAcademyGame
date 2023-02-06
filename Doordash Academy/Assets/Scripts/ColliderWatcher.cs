@@ -16,6 +16,6 @@ public class ColliderWatcher : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        manager.enteredTrigger(other.gameObject);
+        manager.SendMessage("enteredTrigger", other.gameObject);
     }
 }
