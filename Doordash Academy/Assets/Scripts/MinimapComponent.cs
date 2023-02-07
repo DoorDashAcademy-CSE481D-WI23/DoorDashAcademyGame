@@ -10,7 +10,7 @@ public class MinimapComponent : MonoBehaviour
     private  AnimationCurve curve = AnimationCurve.EaseInOut(0,0,1,1);
     private Transform parentTransform;
     private Transform t;
-    private Vector3 zoomedOutPosition = new Vector3(26.5f, 33.1f, -139.17f);
+    public Vector3 zoomedOutPosition = new Vector3(26.5f, 33.1f, -139.17f);
     private float zoomedInZ;
     public Transform minimapFrameTransform;
     private bool isZoomedOut = false;
