@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
     protected void Start()
     {
         currentDelivery = new GameObject[2];
-        score = 0;
+        score = PlayerPrefs.GetInt("money", 0);
         deliveryNumber = 0;
 
         GameObject PickupLocationsParent = GameObject.Find("Pickup Locations");
@@ -110,5 +110,7 @@ public class LevelManager : MonoBehaviour
     // Can be modified later for a better score function.
     void updateScore() {
         score +=  MathF.Truncate(TemperatureBar.value * 100);
+        PlayerPrefs.SetInt("money", (int)score);
+        PlayerPrefs.Save();
     }
 }
