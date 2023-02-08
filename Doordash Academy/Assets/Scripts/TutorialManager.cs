@@ -24,6 +24,8 @@ public class TutorialManager : LevelManager
     protected new void Start()
     {
         base.Start();
+        BottomUserInfo.SetActive(false);
+        MinimapFrame.SetActive(false);
         shownTips = new HashSet<int>();
         isFocused = false;
         continueText = focuser.transform.Find("Text Background").Find("Text (1)").gameObject;
