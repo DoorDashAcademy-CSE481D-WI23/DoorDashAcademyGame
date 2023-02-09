@@ -865,11 +865,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: ea693677-ce5a-4b83-a233-8a89ecebde4d
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: DoordashAcademy
+  organizationId: doordashacademy
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
