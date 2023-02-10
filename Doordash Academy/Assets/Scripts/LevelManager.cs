@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public GameObject player;
     public TMP_Text displayText;
     public TMP_Text displayScore;
+    public TMP_Text completionText;
     public float temperatureDecay = 1.5f;
     public Slider TemperatureBar;
 
@@ -54,6 +55,12 @@ public class LevelManager : MonoBehaviour
         foodTemp -= temperatureDecay * Time.deltaTime;
         TemperatureBar.value = foodTemp / 100f;
         displayScore.GetComponent<TMP_Text>().text = "$ " + score;
+
+        if (deliveryNumber == 2) {
+            completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " delivery and earned $" + score;
+        } else {
+            completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " deliveries and earned $" + score;
+        }
     }
 
     public virtual void enteredTrigger(GameObject triggerObj)
