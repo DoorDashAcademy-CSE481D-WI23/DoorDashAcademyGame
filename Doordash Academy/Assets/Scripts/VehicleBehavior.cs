@@ -11,7 +11,9 @@ public class VehicleBehavior : MonoBehaviour
     public Vector3 DirectionVector = Vector3.left;
     public float DetectionRangeMultiplier = 30f;
     public float MinimumDetectionRange = 2f;
-    public BoxCollider2D spawnArea = null;
+    public Sprite[] spriteOptions;
+    public float shortCarLength = 1.811178f;
+    private BoxCollider2D spawnArea;
 
     private float velocity;
     private BoxCollider2D hitbox;
@@ -22,6 +24,24 @@ public class VehicleBehavior : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        if (spriteOptions.Length > 0) {
+            int carSpriteIndex = UnityEngine.Random.Range(0, spriteOptions.Length);
+            gameObject.GetComponent<SpriteRenderer>().sprite = spriteOptions[carSpriteIndex];
+            if (carSpriteIndex == 2) {
+                BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
+                if (DirectionVector.Equals(Vector3.left) || DirectionVector.Equals(Vector3.right)) {
+                    collider.size = new Vector2(shortCarLength, collider.size.y);
+                } else {
+                    collider.size = new Vector2(collider.size.x, shortCarLength);
+                }
+            }
+        }
+
+        MaxSpeed = Random.Range(MaxSpeed * 0.7f, MaxSpeed * 1.5f);
+        AccelerationPower = Random.Range(AccelerationPower * 0.7f, AccelerationPower * 1.5f);
+        AccelerationPower = Random.Range(AccelerationPower * 0.7f, AccelerationPower * 1.5f);
+
+        spawnArea = gameObject.transform.parent.Find("SpawnArea").gameObject.GetComponent<BoxCollider2D>();
         velocity = InitialVelocity;
         hitbox = GetComponent<BoxCollider2D>();
         layerMask = LayerMask.GetMask("Actor", "Ignore Collisions");
