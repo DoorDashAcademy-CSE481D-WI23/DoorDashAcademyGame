@@ -6,18 +6,18 @@ using UnityEngine.Rendering.Universal;
 public class StopLightIntersectionManager : MonoBehaviour
 {
     // r: 2.97 y: 2.725 g: 2.597
-    public Light2D north;
+    private Light2D north;
     // r: 3.25 y: 3.06 g: 2.87
-    public Light2D east;
+    private Light2D east;
     // r: 3.0 y: 2.85 g: 2.6
-    public Light2D south;
+    private Light2D south;
     // r: 2.94 y: 2.75 g: 2.56
-    public Light2D west;
+    private Light2D west;
 
-    public BoxCollider2D NorthCollider;
-    public BoxCollider2D EastCollider;
-    public BoxCollider2D SouthCollider;
-    public BoxCollider2D WestCollider;
+    private BoxCollider2D NorthCollider;
+    private BoxCollider2D EastCollider;
+    private BoxCollider2D SouthCollider;
+    private BoxCollider2D WestCollider;
 
     public float LightChangeInterval = 8f;
     public float YellowLightDuration = 3f;
@@ -26,6 +26,16 @@ public class StopLightIntersectionManager : MonoBehaviour
     private bool YellowLights;
 
     public void Start() {
+        north = transform.Find("StopLightNorth").Find("Light 2D N").GetComponent<Light2D>();
+        NorthCollider = transform.Find("StopLightNorth").Find("NorthCollider").GetComponent<BoxCollider2D>();
+        east = transform.Find("StopLightEast").Find("Light 2D E").GetComponent<Light2D>();
+        EastCollider = transform.Find("StopLightEast").Find("EastCollider").GetComponent<BoxCollider2D>();
+        south = transform.Find("StopLightSouth").Find("Light 2D S").GetComponent<Light2D>();
+        SouthCollider = transform.Find("StopLightSouth").Find("SouthCollider").GetComponent<BoxCollider2D>();
+        west = transform.Find("StopLightWest").Find("Light 2D W").GetComponent<Light2D>();
+        WestCollider = transform.Find("StopLightWest").Find("WestCollider").GetComponent<BoxCollider2D>();
+
+
         SetLightColorAndYPos(north, 2.597f, Color.green);
         NorthCollider.enabled = false;
 
