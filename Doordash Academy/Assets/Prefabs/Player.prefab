@@ -445,6 +445,7 @@ GameObject:
   - component: {fileID: 8386973062538231712}
   - component: {fileID: 8386973062538231718}
   - component: {fileID: 8386973062538231713}
+  - component: {fileID: 56554524}
   m_Layer: 8
   m_Name: bike
   m_TagString: Untagged
@@ -508,15 +509,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -771534073, guid: e89f42f1acdc249eca9a3586a2e4f21a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.75, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &8386973062538231713
@@ -531,9 +532,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a24af755bad7dd4f9ea90c84a04958b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 21300000, guid: f3a462772b849824bb6d40191a179ff4, type: 3}
-  - {fileID: 21300000, guid: 0548f1dc6741b45438728e8b3e883130, type: 3}
-  - {fileID: 21300000, guid: 9ac3914cf375d514b8bcdf58775ab56f, type: 3}
-  - {fileID: 21300000, guid: d12738e1dae252743be9b65950264e79, type: 3}
-  - {fileID: 21300000, guid: 5abdfb1a39199fb4db1f5abae76fd327, type: 3}
+  numAngles: 5
+  anim: {fileID: 56554524}
+--- !u!95 &56554524
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8386973062538231715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eaf028f790067aa4aa7f2331cd6499e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
