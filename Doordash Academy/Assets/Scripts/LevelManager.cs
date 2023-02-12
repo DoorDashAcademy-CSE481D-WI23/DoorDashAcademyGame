@@ -89,11 +89,10 @@ public class LevelManager : MonoBehaviour
 
         deliveryNumber++;
         Debug.Log("Delivery Number: " + deliveryNumber);
-        Debug.Log("The current delivery route is from " + currentDelivery[0].name + " to " + currentDelivery[1].name);
+        AnalyticsManager.LogGetDeliveryRoute(currentDelivery[0].name, currentDelivery[1].name);
     }
 
     protected void getFood() {
-        Debug.Log("got the food!");
         hasFood = true;
         currentDelivery[0].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
@@ -101,23 +100,25 @@ public class LevelManager : MonoBehaviour
         goal = currentDelivery[1].name;
         displayText.GetComponent<TMP_Text>().text = "Go To: " + goal;
         FindObjectOfType<AudioManager>().Play("Pickup");
-
+        AnalyticsManager.LogGetFood();
     }
 
     protected void deliveryCompleted() {
-        Debug.Log("delivery completed!");
         hasFood = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         FindObjectOfType<AudioManager>().Play("Dropoff");
-        updateScore();
+        float scoreEarned = updateScore();
         getNewDeliveryRoute();
+        AnalyticsManager.LogDeliveryComplete(scoreEarned);
     }
 
     // Calculate score based on the time remaining.
     // Can be modified later for a better score function.
-    void updateScore() {
-        score +=  MathF.Truncate(TemperatureBar.value * 100);
+    float updateScore() {
+        float scoreEarned = TemperatureBar.value * 100;
+        score +=  MathF.Truncate(scoreEarned);
         PlayerPrefs.SetInt("money", (int)score);
         PlayerPrefs.Save();
+        return scoreEarned;
     }
 }

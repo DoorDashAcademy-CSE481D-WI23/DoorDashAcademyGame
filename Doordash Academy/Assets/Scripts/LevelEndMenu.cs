@@ -13,6 +13,7 @@ public class LevelEndMenu : MonoBehaviour
         Time.timeScale = 0.0f;
         levelEndMenu.SetActive(true);
         levelUI.SetActive(false);
+        AnalyticsManager.LogLevelEnd();
     }
 
     // Returns to the main menu

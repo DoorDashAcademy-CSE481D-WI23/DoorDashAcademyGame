@@ -27,6 +27,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         levelUI.SetActive(true);
         gameIsPaused = false;
+        AnalyticsManager.LogUnpauseGame();
     }
 
     public void Pause ()
@@ -35,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         levelUI.SetActive(false);
         gameIsPaused = true;
+        AnalyticsManager.LogPauseGame();
     }
 
     // Returns to the main menu
