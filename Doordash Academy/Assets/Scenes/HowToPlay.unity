@@ -2299,7 +2299,6 @@ GameObject:
   m_Component:
   - component: {fileID: 919527157}
   - component: {fileID: 919527158}
-  - component: {fileID: 919527159}
   m_Layer: 0
   m_Name: Tutorial Stuff
   m_TagString: Untagged
@@ -2338,7 +2337,7 @@ MonoBehaviour:
   player: {fileID: 1135485348}
   displayText: {fileID: 170755331}
   displayScore: {fileID: 172480880}
-  completionText: {fileID: 0}
+  completionText: {fileID: 7831998020274556402}
   temperatureDecay: 1.5
   TemperatureBar: {fileID: 1105210708}
   focusObjects:
@@ -2356,22 +2355,12 @@ MonoBehaviour:
   - If you aren't sure where you are supposed to go, you can open your minimap by
     pressing the M key, or by clicking on it.
   - Watch out, there are cars on the road up ahead! Be careful to not get hit!
+  - Tutorial complete! Now, you are ready to become the best delivery driver the
+    world has ever seen!
   focuser: {fileID: 1852553114}
   cam: {fileID: 2064336550}
   MinimapFrame: {fileID: 1857923325}
   BottomUserInfo: {fileID: 39172003}
---- !u!114 &919527159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919527156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85e75d3556a623e40941a44e4e762b96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &944347245
 GameObject:
   m_ObjectHideFlags: 0
@@ -55875,6 +55864,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8386973061793313504, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
   m_PrefabInstance: {fileID: 1646992554}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1646992558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8386973062524610566, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
+  m_PrefabInstance: {fileID: 1646992554}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ec6d8cfbdea734b9d5f00e03b5013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1661572829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61988,9 +61988,17 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 170327957, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7831998021207490862, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1646992558}
+    - target: {fileID: 7831998021207490862, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleZoom
       objectReference: {fileID: 0}
     - target: {fileID: 7831998021491769173, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
       propertyPath: m_Name
@@ -62096,3 +62104,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7831998020789642510, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
   m_PrefabInstance: {fileID: 7831998020274556400}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7831998020274556402 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1744403649, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
+  m_PrefabInstance: {fileID: 7831998020274556400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -55,12 +55,6 @@ public class LevelManager : MonoBehaviour
         foodTemp -= temperatureDecay * Time.deltaTime;
         TemperatureBar.value = foodTemp / 100f;
         displayScore.GetComponent<TMP_Text>().text = "$ " + score;
-
-        if (deliveryNumber == 2) {
-            completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " delivery and earned $" + score;
-        } else {
-            completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " deliveries and earned $" + score;
-        }
     }
 
     public virtual void enteredTrigger(GameObject triggerObj)
@@ -103,12 +97,17 @@ public class LevelManager : MonoBehaviour
         AnalyticsManager.LogGetFood();
     }
 
-    protected void deliveryCompleted() {
+    protected virtual void deliveryCompleted() {
         hasFood = false;
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         FindObjectOfType<AudioManager>().Play("Dropoff");
         float scoreEarned = updateScore();
         getNewDeliveryRoute();
+        if (deliveryNumber == 2) {
+            completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " delivery and earned $" + score;
+        } else {
+            completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " deliveries and earned $" + score;
+        }
         AnalyticsManager.LogDeliveryComplete(scoreEarned);
     }
 

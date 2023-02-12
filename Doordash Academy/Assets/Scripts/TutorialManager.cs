@@ -105,11 +105,24 @@ public class TutorialManager : LevelManager
     }
 
     public new void enteredTrigger(GameObject triggerObj) {
-        base.enteredTrigger(triggerObj);
+        GameObject currentObjective = currentDelivery[hasFood ? 1 : 0];
+        if (triggerObj == currentObjective) {
+            if (hasFood) {
+                deliveryCompleted();
+            } else {
+                getFood();
+            }
+        }
         Transform parent = triggerObj.transform.parent;
         if (parent != null && parent.name == "triggers") {
             showTip(triggerObj.transform.GetSiblingIndex() + 1);
         }
+    }
+
+    protected new void deliveryCompleted() {
+        base.deliveryCompleted();
+        completionText.text = text[text.Length - 1];
+        GameObject.Find("UI Canvas").GetComponent<LevelEndMenu>().LevelEnd();
     }
 
     private static void SetPadding(RectTransform rect, float left, float top, float right, float bottom) {
