@@ -122,6 +122,8 @@ public class TutorialManager : LevelManager
     protected new void deliveryCompleted() {
         base.deliveryCompleted();
         completionText.text = text[text.Length - 1];
+        PlayerPrefs.SetInt("tutorialCompleted", 1);
+        PlayerPrefs.Save();
         GameObject.Find("UI Canvas").GetComponent<LevelEndMenu>().LevelEnd();
     }
 

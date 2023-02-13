@@ -9,8 +9,9 @@ public class MainMenu : MonoBehaviour
     // Loads a relevant scene and begins play.
     public void PlayGame()
     {
-        AnalyticsManager.LogLevelLoad(name);
-        SceneManager.LoadScene("HowToPlay");
+        string currentLevel = PlayerPrefs.GetInt("tutorialCompleted", 0) == 0 ? "HowToPlay" : "City";
+        AnalyticsManager.LogLevelLoad(currentLevel);
+        SceneManager.LoadScene(currentLevel);
     }
 
     // Loads a scene and begins play.
