@@ -27,6 +27,5 @@ public class PlayerRotator3D : MonoBehaviour
     private void rotateGivenParentRotation(float r)
     {
         t.eulerAngles = new Vector3(Mathf.Cos((r * Mathf.PI)/180) * -45, -r, Mathf.Sin((r * Mathf.PI)/180) * 45);
-        Debug.Log(r);
     }
 }

@@ -15,7 +15,7 @@ public class VehicleBehavior : MonoBehaviour
     public float shortCarLength = 1.811178f;
     private BoxCollider2D spawnArea;
 
-    private float velocity;
+    public float velocity;
     private BoxCollider2D hitbox;
     private LayerMask layerMask;
     private float lastDetectionRange = 0f;

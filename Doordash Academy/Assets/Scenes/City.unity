@@ -5869,6 +5869,7 @@ MonoBehaviour:
   MinimumDetectionRange: 2.5
   spriteOptions: []
   shortCarLength: 1.811178
+  velocity: 0
   red: {fileID: 832139355}
   blue: {fileID: 2037118704}
 --- !u!1001 &413504878
@@ -11875,7 +11876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931553205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.28, y: 1.8, z: -10}
+  m_LocalPosition: {x: 14.73, y: 2.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19237,7 +19238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1544505960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.28, y: 1.8, z: -10}
+  m_LocalPosition: {x: 14.73, y: 2.94, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22921,6 +22922,7 @@ MonoBehaviour:
   MinimumDetectionRange: 0.5
   spriteOptions: []
   shortCarLength: 1.811178
+  velocity: 0
   red: {fileID: 1288821795}
   blue: {fileID: 674455369}
 --- !u!61 &1838946669
@@ -27026,6 +27028,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1418632170, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418632170, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7831998021207490862, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -27211,11 +27221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8386973062426906231, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.28
+      value: 14.73
       objectReference: {fileID: 0}
     - target: {fileID: 8386973062426906231, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 2.94
       objectReference: {fileID: 0}
     - target: {fileID: 8386973062426906231, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
       propertyPath: m_LocalPosition.z
