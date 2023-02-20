@@ -15,6 +15,7 @@ public class ColliderWatcher : MonoBehaviour
     private float regenerationPauseOnCollision = 1f;  // how long regeneration should pause when in a collision (seconds)
     private float secondsUntilInvincibilityEnds = 0f;
     private float invincibilityTime = 2f;  // how long you should be invincible after dying (seconds)
+    private float damageFinancialPenalty = 25.0f;
 
     void Start() {
         manager = GameObject.FindObjectOfType<LevelManager>();
@@ -56,7 +57,7 @@ public class ColliderWatcher : MonoBehaviour
     }
 
     void OnDeath() {
-        manager.AddScore(-100f);
+        manager.AddScore(-damageFinancialPenalty);
         // TODO: play sad sound
         healthBar.value = 1f;
         secondsUntilInvincibilityEnds = invincibilityTime;
