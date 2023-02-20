@@ -119,7 +119,7 @@ public class AnalyticsManager : MonoBehaviour
     }
 
     public static void LogCollision(string levelName, float x, float y, float damage, int timeMS) {
-        AnalyticsService.Instance.CustomData("death",  new Dictionary<string, object>
+        AnalyticsService.Instance.CustomData("collision",  new Dictionary<string, object>
         {
             { "levelName", levelName },
             { "x", x },
