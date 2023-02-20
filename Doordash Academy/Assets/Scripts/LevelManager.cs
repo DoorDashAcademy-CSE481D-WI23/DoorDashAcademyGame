@@ -106,6 +106,7 @@ public class LevelManager : MonoBehaviour
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         FindObjectOfType<AudioManager>().Play("Dropoff");
         float scoreEarned = AddScore(TemperatureBar.value * 100);
+        Debug.Log("Temperature: " + TemperatureBar.value + ", Score: " + scoreEarned);
         getNewDeliveryRoute();
         if (deliveryNumber == 2) {
             completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " delivery and earned $" + score;

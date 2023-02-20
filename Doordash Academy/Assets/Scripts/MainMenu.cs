@@ -6,6 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private static bool isInitialized = false;
+
+    // On launch
+    public void Start()
+    {
+        if (!isInitialized) {
+            PlayerPrefs.SetInt("tutorialCompleted", 0);
+            PlayerPrefs.SetInt("money", 0);
+            isInitialized = true;
+        }
+    }
+
     // Loads a relevant scene and begins play.
     public void PlayGame()
     {
