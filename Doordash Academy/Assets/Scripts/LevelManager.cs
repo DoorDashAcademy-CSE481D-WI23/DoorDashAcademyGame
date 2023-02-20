@@ -98,7 +98,11 @@ public class LevelManager : MonoBehaviour
         goal = currentDelivery[1].name;
         displayText.GetComponent<TMP_Text>().text = "Go To: " + goal;
         FindObjectOfType<AudioManager>().Play("Pickup");
-        AnalyticsManager.LogGetFood(currentDelivery[0].name, currentDelivery[1].name, foodTemp, SceneManager.GetActiveScene().name);
+        AnalyticsManager.LogGetFood(currentDelivery[0].name,
+                                    currentDelivery[1].name,
+                                    foodTemp,
+                                    SceneManager.GetActiveScene().name,
+                                    TemperatureBar.value == 0.0f);
     }
 
     protected virtual void deliveryCompleted() {
@@ -106,14 +110,18 @@ public class LevelManager : MonoBehaviour
         currentDelivery[1].transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
         FindObjectOfType<AudioManager>().Play("Dropoff");
         float scoreEarned = AddScore(TemperatureBar.value * 100);
-        Debug.Log("Temperature: " + TemperatureBar.value + ", Score: " + scoreEarned);
         getNewDeliveryRoute();
         if (deliveryNumber == 2) {
             completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " delivery and earned $" + score;
         } else {
             completionText.GetComponent<TMP_Text>().text = "You completed " + (deliveryNumber - 1) + " deliveries and earned $" + score;
         }
-        AnalyticsManager.LogDeliveryComplete(currentDelivery[0].name, currentDelivery[1].name, SceneManager.GetActiveScene().name, scoreEarned, foodTemp);
+        AnalyticsManager.LogDeliveryComplete(currentDelivery[0].name,
+                                             currentDelivery[1].name,
+                                             SceneManager.GetActiveScene().name,
+                                             scoreEarned,
+                                             foodTemp,
+                                             scoreEarned == 0.0f);
     }
 
     public float AddScore(float scoreEarned) {

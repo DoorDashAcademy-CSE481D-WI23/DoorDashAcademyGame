@@ -70,24 +70,35 @@ public class AnalyticsManager : MonoBehaviour
         });
     }
 
-    public static void LogGetFood(string pickupLocation, string dropoffLocation, float foodTemp, string levelName) {
+    public static void LogGetFood(string pickupLocation,
+                                  string dropoffLocation,
+                                  float foodTemp,
+                                  string levelName,
+                                  bool failed) {
         AnalyticsService.Instance.CustomData("getFood",  new Dictionary<string, object>
         {
             { "pickupLocation", pickupLocation },
             { "dropoffLocation", dropoffLocation },
             { "foodTemp", foodTemp },
-            { "levelName", levelName }
+            { "levelName", levelName },
+            { "failed", failed }
         });
     }
 
-    public static void LogDeliveryComplete(string pickupLocation, string dropoffLocation, string levelName, float moneyEarned, float foodTemp) {
+    public static void LogDeliveryComplete(string pickupLocation,
+                                           string dropoffLocation,
+                                           string levelName,
+                                           float moneyEarned,
+                                           float foodTemp,
+                                           bool failed) {
         AnalyticsService.Instance.CustomData("deliveryComplete",  new Dictionary<string, object>
         {
             { "pickupLocation", pickupLocation },
             { "dropoffLocation", dropoffLocation },
             { "foodTemp", foodTemp },
             { "moneyEarned", moneyEarned },
-            { "levelName", levelName }
+            { "levelName", levelName },
+            { "failed", failed }
         });
     }
 
