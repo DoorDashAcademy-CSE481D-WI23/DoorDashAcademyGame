@@ -61,30 +61,41 @@ public class AnalyticsManager : MonoBehaviour
         });
     }
 
-    public static void LogGetDeliveryRoute(string pickupLocation, string dropoffLocation) {
+    public static void LogGetDeliveryRoute(string pickupLocation, string dropoffLocation, string levelName) {
         AnalyticsService.Instance.CustomData("getDeliveryRoute",  new Dictionary<string, object>
         {
             { "pickupLocation", pickupLocation },
-            { "dropoffLocation", dropoffLocation }
+            { "dropoffLocation", dropoffLocation },
+            { "levelName", levelName }
         });
     }
 
-    public static void LogGetFood() {
+    public static void LogGetFood(string pickupLocation, string dropoffLocation, float foodTemp, string levelName) {
         AnalyticsService.Instance.CustomData("getFood",  new Dictionary<string, object>
         {
+            { "pickupLocation", pickupLocation },
+            { "dropoffLocation", dropoffLocation },
+            { "foodTemp", foodTemp },
+            { "levelName", levelName }
         });
     }
 
-    public static void LogDeliveryComplete(float moneyEarned) {
+    public static void LogDeliveryComplete(string pickupLocation, string dropoffLocation, string levelName, float moneyEarned, float foodTemp) {
         AnalyticsService.Instance.CustomData("deliveryComplete",  new Dictionary<string, object>
         {
-            { "moneyEarned", moneyEarned }
+            { "pickupLocation", pickupLocation },
+            { "dropoffLocation", dropoffLocation },
+            { "foodTemp", foodTemp },
+            { "moneyEarned", moneyEarned },
+            { "levelName", levelName }
         });
     }
 
-        public static void LogLevelEnd() {
+        public static void LogLevelEnd(string levelName, float currentMoney) {
         AnalyticsService.Instance.CustomData("levelEnd",  new Dictionary<string, object>
         {
+            { "levelName", levelName },
+            { "currentMoney", currentMoney }
         });
     }
 }

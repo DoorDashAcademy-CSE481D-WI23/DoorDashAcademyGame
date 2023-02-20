@@ -42,6 +42,7 @@ public class ColliderWatcher : MonoBehaviour
             damageTaken += car.velocity * carDamageMultiplier / totalHealth;
         }
         if (damageTaken > 0.1f) {
+            // TODO: play take damage sound
             healthBar.value -= damageTaken;
             if (healthBar.value < 0.01f) {
                 OnDeath();
@@ -55,7 +56,8 @@ public class ColliderWatcher : MonoBehaviour
     }
 
     void OnDeath() {
-        Debug.Log("you died :(");
+        manager.AddScore(-100f);
+        // TODO: play sad sound
         healthBar.value = 1f;
         secondsUntilInvincibilityEnds = invincibilityTime;
     }
