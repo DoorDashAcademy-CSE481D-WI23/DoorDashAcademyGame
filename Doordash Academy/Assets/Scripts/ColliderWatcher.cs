@@ -11,8 +11,8 @@ public class ColliderWatcher : MonoBehaviour
 
     private System.DateTime time0;
 
-    private float totalHealth = 25f;
-    private float carDamageMultiplier = 50f;
+    private float totalHealth = 50f;
+    private float carDamageMultiplier = 25f;
     private float regenerationRate = 0.1f;  // what ratio of health should go up in one second
     private float secondsUntilRegenerate = 0f;
     private float regenerationPauseOnCollision = 1f;  // how long regeneration should pause when in a collision (seconds)
