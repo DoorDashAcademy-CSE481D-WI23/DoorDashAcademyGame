@@ -110,22 +110,20 @@ public class AnalyticsManager : MonoBehaviour
         });
     }
 
-    public static void LogDeath(string levelName, int timeMS) {
+    public static void LogDeath(string levelName) {
         AnalyticsService.Instance.CustomData("death",  new Dictionary<string, object>
         {
             { "levelName", levelName },
-            { "time", timeMS }
         });
     }
 
-    public static void LogCollision(string levelName, float x, float y, float damage, int timeMS) {
+    public static void LogCollision(string levelName, float x, float y, float damage) {
         AnalyticsService.Instance.CustomData("collision",  new Dictionary<string, object>
         {
             { "levelName", levelName },
-            { "x", x },
-            { "y", y },
+            { "x_coord", x },
+            { "y_coord", y },
             { "damage", damage },
-            { "time", timeMS }
         });
     }
 }
