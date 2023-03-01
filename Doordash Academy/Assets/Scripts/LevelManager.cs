@@ -163,4 +163,19 @@ public class LevelManager : MonoBehaviour
         moneyChangeText.gameObject.SetActive(false);
         t.position = moneyChangeTextStartingPosition;
     }
+
+    public Vector3 GetEulerAngleBetweenPlayerAndTarget() {
+        Vector3 currentObjective = currentDelivery[hasFood ? 1 : 0].transform.position;
+        Vector3 currentPosition = player.transform.position;
+        Vector3 difference = currentObjective - currentPosition;
+        float deg = Vector3.Angle(difference, Vector3.up);
+        if (difference.x > 0) {
+            deg = 360f - deg;
+        }
+        return new Vector3(0,0,deg);
+    }
+
+    public bool TargetIsVisible() {
+        return currentDelivery[hasFood ? 1 : 0].GetComponentInChildren<Renderer>().isVisible;
+    }
 }

@@ -14,18 +14,25 @@ public class MinimapComponent : MonoBehaviour
     private float zoomedInZ;
     public Transform minimapFrameTransform;
     private bool isZoomedOut = false;
+    private Transform mapPointer;
+    private LevelManager levelManager;
 
     void Start()
     {
         t = gameObject.GetComponent<Transform>();
         parentTransform = t.parent;
         zoomedInZ = t.position.z;
+        mapPointer = parentTransform.Find("Minimap Pointer");
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         t.rotation = Quaternion.identity;
+
+        mapPointer.gameObject.SetActive(!levelManager.TargetIsVisible());
+        mapPointer.eulerAngles = levelManager.GetEulerAngleBetweenPlayerAndTarget();
 
         if (Input.GetKeyDown(KeyCode.M))
             ToggleZoom();
