@@ -21,7 +21,9 @@ public class PlayerRotator3D : MonoBehaviour
     {
         float r = parentTransform.localEulerAngles.z % 360f;
         rotateGivenParentRotation(r);
-        anim.speed = 3 * carcontroller.GetVelocity().magnitude / carcontroller.maxSpeed;
+        if (anim != null) {
+            anim.speed = 3 * carcontroller.GetVelocity().magnitude / carcontroller.maxSpeed;
+        }
     }
 
     private void rotateGivenParentRotation(float r)
