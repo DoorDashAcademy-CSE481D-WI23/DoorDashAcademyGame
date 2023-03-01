@@ -26,7 +26,7 @@ public class PlayerCamera : MonoBehaviour
     void Start()
     {
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
-        virtualCamera.m_Lens.OrthographicSize = minOrthographicSize;
+        virtualCamera.m_Lens.OrthographicSize = maxOrthographicSize;
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class PlayerCamera : MonoBehaviour
         float factor = Mathf.Clamp01(speed / (controller.maxSpeed * maxSpeedFactor));
         float rawSize = Mathf.Lerp(minOrthographicSize, maxOrthographicSize, factor);
         float tickSize = Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, rawSize, deltaTime); 
-        virtualCamera.m_Lens.OrthographicSize = tickSize;
+        //virtualCamera.m_Lens.OrthographicSize = tickSize;
 
         // Update the target offset
         Vector3 diff = new Vector3(velocity.x, velocity.y, 0);

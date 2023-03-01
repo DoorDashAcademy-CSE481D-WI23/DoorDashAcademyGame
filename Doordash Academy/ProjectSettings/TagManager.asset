@@ -45,3 +45,6 @@ TagManager:
   - name: Obstacles
     uniqueID: 1469713069
     locked: 0
+  - name: Roofs
+    uniqueID: 3624826845
+    locked: 0
