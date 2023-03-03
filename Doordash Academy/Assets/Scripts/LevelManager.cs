@@ -30,6 +30,13 @@ public class LevelManager : MonoBehaviour
 
     protected void Start()
     {
+        if (PlayerPrefs.GetInt("hascar", 0) == 1) {
+            player.transform.Find("bike").gameObject.SetActive(false);
+            player.transform.Find("car").gameObject.SetActive(true);
+            player.GetComponent<CapsuleCollider2D>().size = new Vector2(0.72f,1.36f);
+            //TODO: also adjust speed/accelleration/handling
+        }
+
         currentDelivery = new GameObject[2];
         score = PlayerPrefs.GetInt("money", 0);
         deliveryNumber = 0;
