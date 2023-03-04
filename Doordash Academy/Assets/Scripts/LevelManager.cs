@@ -30,12 +30,7 @@ public class LevelManager : MonoBehaviour
 
     protected void Start()
     {
-        if (PlayerPrefs.GetInt("hascar", 0) == 1) {
-            player.transform.Find("bike").gameObject.SetActive(false);
-            player.transform.Find("car").gameObject.SetActive(true);
-            player.GetComponent<CapsuleCollider2D>().size = new Vector2(0.72f,1.36f);
-            //TODO: also adjust speed/accelleration/handling
-        }
+        handleUpgrades();
 
         currentDelivery = new GameObject[2];
         score = PlayerPrefs.GetInt("money", 0);
@@ -184,5 +179,26 @@ public class LevelManager : MonoBehaviour
 
     public bool TargetIsVisible() {
         return currentDelivery[hasFood ? 1 : 0].GetComponentInChildren<Renderer>().isVisible;
+    }
+
+    private void handleUpgrades() {
+        if (PlayerPrefs.GetInt("hascar", 0) == 1) {
+            player.transform.Find("bike").gameObject.SetActive(false);
+            player.transform.Find("car").gameObject.SetActive(true);
+            player.GetComponent<CapsuleCollider2D>().size = new Vector2(0.72f,1.36f);
+            //TODO: also adjust speed/accelleration/handling
+        }
+
+        if(PlayerPrefs.GetInt("hasinsulatedbag", 0) == 1) {
+            //reduce the temperature decay
+            this.temperatureDecay *= 0.75f;
+            //give some visual that we have the upgrade
+            TemperatureBar.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<RectTransform>().localScale = new Vector3(1f,0.75f,1f);
+        }
+
+        if(PlayerPrefs.GetInt("hasmedicalinsurance", 0) == 1) {
+            //reduce money lost when dying
+            player.GetComponent<ColliderWatcher>().damageFinancialPenalty *= 0.6f;
+        }
     }
 }
