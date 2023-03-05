@@ -1534,6 +1534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: medicalinsurance
   itemCost: 5
+  tooltip: Lose less money each time you crash
 --- !u!1 &405770157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4794,6 +4795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: car
   itemCost: 1
+  tooltip: Car is purely for aesthetic purposes
 --- !u!1 &1182635080
 GameObject:
   m_ObjectHideFlags: 0
@@ -6899,6 +6901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: insulatedbag
   itemCost: 2
+  tooltip: Food will cool down slower
 --- !u!1 &1870025862
 GameObject:
   m_ObjectHideFlags: 0
