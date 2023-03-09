@@ -12,8 +12,7 @@ public class MainMenu : MonoBehaviour
     public void Start()
     {
         if (!isInitialized) {
-            PlayerPrefs.SetInt("tutorialCompleted", 0);
-            PlayerPrefs.SetInt("money", 0);
+            PlayerPrefs.DeleteAll();
             isInitialized = true;
         }
     }
