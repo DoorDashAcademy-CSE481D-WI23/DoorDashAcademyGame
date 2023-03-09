@@ -2971,6 +2971,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8123720014432988441, guid: 9cc0b195e3c3d42478bc127ad215dce4, type: 3}
   m_PrefabInstance: {fileID: 898552685}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &201047868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8386973062524610566, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
+  m_PrefabInstance: {fileID: 1915382786}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ec6d8cfbdea734b9d5f00e03b5013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &203226345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7484586249886804524, guid: 31ebb8c8ad07b470dbdd1c5ec8b1c900, type: 3}
@@ -11424,6 +11435,7 @@ GameObject:
   - component: {fileID: 692672165}
   - component: {fileID: 692672167}
   - component: {fileID: 692672166}
+  - component: {fileID: 692672168}
   m_Layer: 0
   m_Name: Buildings
   m_TagString: Untagged
@@ -11533,6 +11545,23 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &692672168
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692672164}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!4 &698721542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8123720014432988441, guid: 9cc0b195e3c3d42478bc127ad215dce4, type: 3}
@@ -30702,6 +30731,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8386973062524610566, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
+      propertyPath: zoomedOutPosition.x
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386973062524610566, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
+      propertyPath: zoomedOutPosition.y
+      value: 7.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386973062524610566, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
+      propertyPath: zoomedOutPosition.z
+      value: -545.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8386973062524610566, guid: 6afad02742d85b04daeac3014d9fb902, type: 3}
       propertyPath: minimapFrameTransform
       value: 
       objectReference: {fileID: 2027787928}
@@ -32636,6 +32677,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7831998021207490862, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 201047868}
+    - target: {fileID: 7831998021207490862, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleZoom
+      objectReference: {fileID: 0}
     - target: {fileID: 7831998021491769173, guid: 92dc65c4f15ce3046a08ff7116539887, type: 3}
       propertyPath: m_Name
       value: UI Canvas
@@ -33559,6 +33608,7 @@ GameObject:
   - component: {fileID: 2103306199}
   - component: {fileID: 2103306201}
   - component: {fileID: 2103306200}
+  - component: {fileID: 2103306202}
   m_Layer: 0
   m_Name: Ground_Decor
   m_TagString: Untagged
@@ -33668,6 +33718,23 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &2103306202
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103306198}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
 --- !u!1001 &2104659404
 PrefabInstance:
   m_ObjectHideFlags: 0
