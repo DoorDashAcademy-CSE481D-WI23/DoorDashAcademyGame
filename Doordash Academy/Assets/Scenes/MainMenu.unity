@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: medicalinsurance
-  itemCost: 400
+  itemCost: 200
   tooltip: Lose less money each time you crash
 --- !u!1 &405770157
 GameObject:
@@ -3731,7 +3731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: car
-  itemCost: 700
+  itemCost: 350
   tooltip: Car is purely for aesthetic purposes
 --- !u!1 &1182635080
 GameObject:
@@ -5641,7 +5641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: insulatedbag
-  itemCost: 200
+  itemCost: 100
   tooltip: Food will cool down slower
 --- !u!1 &1871287291
 GameObject:
@@ -6148,7 +6148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: suburbsmap
-  itemCost: 500
+  itemCost: 250
   tooltip: 
 --- !u!1 &2114911722
 GameObject:
