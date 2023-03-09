@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
-
-
-public class ShopManager : MonoBehaviour
+public class MapShopManager : MonoBehaviour
 {
+
     private GameObject[] purchasables;
 
     void Start()
@@ -23,13 +22,12 @@ public class ShopManager : MonoBehaviour
 
     private void updateButtons() {
         int money = PlayerPrefs.GetInt("money", 0);
+        if (purchasables == null) return;
         foreach (GameObject item in purchasables) {
             TextMeshProUGUI costText = item.transform.Find("Cost").GetComponent<TextMeshProUGUI>();
             int cost = item.GetComponent<ShopItem>().itemCost;
             if (PlayerPrefs.GetInt("has" + item.GetComponent<ShopItem>().itemName, 0) == 1) {  // already owned
-                costText.color = Color.white;
-                costText.text = "owned";
-                item.GetComponentInChildren<Button>().interactable = false;
+                item.SetActive(false);
             } else if (money >= cost) {
                 costText.color = Color.green;
                 item.GetComponentInChildren<Button>().interactable = true;
@@ -37,7 +35,6 @@ public class ShopManager : MonoBehaviour
                 costText.color = Color.red;
                 item.GetComponentInChildren<Button>().interactable = false;
             }
-
         }
     }
 
